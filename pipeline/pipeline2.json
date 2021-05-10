@@ -51,7 +51,7 @@
 								},
 								"sink": {
 									"name": "fyear",
-									"type": "Int32"
+									"type": "Int16"
 								}
 							},
 							{
