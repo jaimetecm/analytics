@@ -1,0 +1,19 @@
+{
+	"name": "rows",
+	"properties": {
+		"description": "Data from WorldBank",
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Xml",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "GNI.xml",
+				"container": "samples"
+			}
+		}
+	}
+}
