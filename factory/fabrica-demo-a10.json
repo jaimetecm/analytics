@@ -1,0 +1,9 @@
+{
+	"name": "fabrica-demo-a10",
+	"location": "southcentralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2bfcca25-8ab3-4eb7-a1d7-f6ee64cc21a7",
+		"tenantId": "cbc6ec53-fc91-43cc-bd00-8ebc495f501f"
+	}
+}
