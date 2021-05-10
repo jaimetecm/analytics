@@ -38,11 +38,26 @@
 						"mappings": [
 							{
 								"source": {
+									"path": "['field'][0]['@name']"
+								},
+								"sink": {
+									"name": "xname"
+								}
+							},
+							{
+								"source": {
+									"path": "['field'][0]['@key']"
+								},
+								"sink": {
+									"name": "xkey"
+								}
+							},
+							{
+								"source": {
 									"path": "['field'][0]['_value_']"
 								},
 								"sink": {
-									"name": "country",
-									"type": "String"
+									"name": "xvalue"
 								}
 							}
 						],
@@ -57,7 +72,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable2",
+						"referenceName": "AzureSqlTable3",
 						"type": "DatasetReference"
 					}
 				]
