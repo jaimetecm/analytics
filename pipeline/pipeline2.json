@@ -51,7 +51,7 @@
 								},
 								"sink": {
 									"name": "fyear",
-									"type": "Int16"
+									"type": "String"
 								}
 							},
 							{
@@ -60,7 +60,7 @@
 								},
 								"sink": {
 									"name": "fvalue",
-									"type": "Decimal"
+									"type": "String"
 								}
 							}
 						],
@@ -75,7 +75,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable4",
+						"referenceName": "AzureSqlTable5",
 						"type": "DatasetReference"
 					}
 				]
