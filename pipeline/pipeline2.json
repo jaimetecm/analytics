@@ -51,7 +51,7 @@
 								},
 								"sink": {
 									"name": "fyear",
-									"type": "String"
+									"type": "Int32"
 								}
 							},
 							{
@@ -60,7 +60,7 @@
 								},
 								"sink": {
 									"name": "fvalue",
-									"type": "String"
+									"type": "Decimal"
 								}
 							}
 						],
