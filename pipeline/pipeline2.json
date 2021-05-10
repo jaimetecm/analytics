@@ -99,6 +99,9 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"pythonFile": "dbfs:/Users/jaimereyes@live.com.mx/demo"
+				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks2",
 					"type": "LinkedServiceReference"
