@@ -38,31 +38,29 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "['field'][0]['@name']"
-								},
-								"sink": {
-									"name": "xname"
-								}
-							},
-							{
-								"source": {
-									"path": "['field'][0]['@key']"
-								},
-								"sink": {
-									"name": "xkey"
-								}
-							},
-							{
-								"source": {
 									"path": "['field'][0]['_value_']"
 								},
 								"sink": {
-									"name": "xvalue"
+									"name": "fcountry",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['Root']"
+									"path": "['field'][2]['_value_']"
+								},
+								"sink": {
+									"name": "fyear",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['field'][3]['_value_']"
+								},
+								"sink": {
+									"name": "fvalue",
+									"type": "String"
 								}
 							}
 						],
