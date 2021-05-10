@@ -32,7 +32,22 @@
 						"type": "AzureSqlSink",
 						"tableOption": "autoCreate"
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "['field'][0]['_value_']"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String"
+								}
+							}
+						],
+						"collectionReference": "$['Root']['data']['record']"
+					}
 				},
 				"inputs": [
 					{
