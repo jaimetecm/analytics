@@ -1,0 +1,27 @@
+{
+	"name": "AzureSqlTable7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "fcountry",
+				"type": "varchar"
+			},
+			{
+				"name": "fvalue",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "promedios"
+		}
+	}
+}

@@ -123,6 +123,82 @@
 				"typeProperties": {
 					"waitTimeInSeconds": 10
 				}
+			},
+			{
+				"name": "Copy to DB",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "GNI calculations",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "DELETE FROM promedios;",
+						"disableMetricsCollection": true
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['fcountry']"
+								},
+								"sink": {
+									"name": "fcountry",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['avg']"
+								},
+								"sink": {
+									"name": "fvalue",
+									"type": "Decimal"
+								}
+							}
+						],
+						"collectionReference": "@{activity('databricks notebook activity name').output.runOutput}",
+						"mapComplexValuesToString": false
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable7",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
