@@ -84,7 +84,14 @@
 			{
 				"name": "GNI calculations",
 				"type": "DatabricksNotebook",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "wait",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -99,6 +106,22 @@
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks3",
 					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "wait",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Copy XML to DB",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 10
 				}
 			}
 		],
