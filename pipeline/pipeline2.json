@@ -30,7 +30,8 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"tableOption": "autoCreate"
+						"preCopyScript": "DELETE FROM worldbank4;",
+						"disableMetricsCollection": true
 					},
 					"enableStaging": false,
 					"translator": {
