@@ -8,14 +8,29 @@
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
-		"AzureSqlDatabase1_connectionString": {
-			"value": ""
-		},
 		"AzureDatabricks1_accessToken": {
 			"value": ""
 		},
 		"AzureDatabricks2_accessToken": {
 			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureDatabricks3_accessToken": {
+			"value": ""
+		},
+		"AzureBatch1_accessKey": {
+			"value": ""
+		},
+		"AzureBatch1_properties_typeProperties_accountName": {
+			"value": "jaimereyes"
+		},
+		"AzureBatch1_properties_typeProperties_batchUri": {
+			"value": "https://a10cons.southcentralus.batch.azure.com"
+		},
+		"AzureBatch1_properties_typeProperties_poolName": {
+			"value": "gp1"
 		},
 		"containerUri": {
 			"value": ""

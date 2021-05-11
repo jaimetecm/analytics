@@ -6,42 +6,6 @@
 			"type": "string",
 			"metadata": "Nombre de instancia de Data Factory",
 			"defaultValue": "fabrica-demo-a10"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Cadena protegida para \"connectionString\"de \"AzureBlobStorage1\""
-		},
-		"AzureDatabricks1_accessToken": {
-			"type": "secureString",
-			"metadata": "Cadena protegida para \"accessToken\"de \"AzureDatabricks1\""
-		},
-		"AzureDatabricks2_accessToken": {
-			"type": "secureString",
-			"metadata": "Cadena protegida para \"accessToken\"de \"AzureDatabricks2\""
-		},
-		"AzureSqlDatabase1_connectionString": {
-			"type": "secureString",
-			"metadata": "Cadena protegida para \"connectionString\"de \"AzureSqlDatabase1\""
-		},
-		"AzureDatabricks3_accessToken": {
-			"type": "secureString",
-			"metadata": "Cadena protegida para \"accessToken\"de \"AzureDatabricks3\""
-		},
-		"AzureBatch1_accessKey": {
-			"type": "secureString",
-			"metadata": "Cadena protegida para \"accessKey\"de \"AzureBatch1\""
-		},
-		"AzureBatch1_properties_typeProperties_accountName": {
-			"type": "string",
-			"defaultValue": "jaimereyes"
-		},
-		"AzureBatch1_properties_typeProperties_batchUri": {
-			"type": "string",
-			"defaultValue": "https://a10cons.southcentralus.batch.azure.com"
-		},
-		"AzureBatch1_properties_typeProperties_poolName": {
-			"type": "string",
-			"defaultValue": "gp1"
 		}
 	},
 	"variables": {
@@ -123,15 +87,13 @@
 						"inputs": [
 							{
 								"referenceName": "Xml1",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "AzureSqlTable6",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -182,107 +144,9 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Xml1')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable6')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks3')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Xml1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Xml",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "GNI.xml",
-						"container": "samples"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDatabricks1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDatabricks",
-				"typeProperties": {
-					"domain": "https://adb-7863673157889181.1.azuredatabricks.net",
-					"accessToken": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDatabricks1_accessToken')]"
-					},
-					"newClusterNodeType": "Standard_DS3_v2",
-					"newClusterNumOfWorker": "1",
-					"newClusterSparkEnvVars": {
-						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-					},
-					"newClusterVersion": "8.2.x-scala2.12",
-					"newClusterInitScripts": []
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDatabricks2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDatabricks",
-				"typeProperties": {
-					"domain": "https://adb-7863673157889181.1.azuredatabricks.net",
-					"accessToken": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDatabricks2_accessToken')]"
-					},
-					"newClusterNodeType": "Standard_F4s",
-					"newClusterNumOfWorker": "2",
-					"newClusterSparkEnvVars": {
-						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-					},
-					"newClusterVersion": "7.6.x-scala2.12",
-					"newClusterInitScripts": []
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDatabase1_connectionString')]"
-				}
-			},
-			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable6')]",
@@ -317,9 +181,7 @@
 					"table": "worldbank5"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase1')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureDatabricks3')]",
@@ -332,7 +194,7 @@
 					"domain": "https://adb-7863673157889181.1.azuredatabricks.net",
 					"accessToken": {
 						"type": "SecureString",
-						"value": "[parameters('AzureDatabricks3_accessToken')]"
+						"value": "**********"
 					},
 					"existingClusterId": "0510-232120-fun339"
 				}
@@ -347,22 +209,20 @@
 				"annotations": [],
 				"type": "AzureBatch",
 				"typeProperties": {
-					"accountName": "[parameters('AzureBatch1_properties_typeProperties_accountName')]",
+					"accountName": "jaimereyes",
 					"accessKey": {
 						"type": "SecureString",
-						"value": "[parameters('AzureBatch1_accessKey')]"
+						"value": "**********"
 					},
-					"batchUri": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]",
-					"poolName": "[parameters('AzureBatch1_properties_typeProperties_poolName')]",
+					"batchUri": "https://a10cons.southcentralus.batch.azure.com",
+					"poolName": "gp1",
 					"linkedServiceName": {
 						"referenceName": "AzureBlobStorage1",
 						"type": "LinkedServiceReference"
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
+			"dependsOn": []
 		}
 	]
 }

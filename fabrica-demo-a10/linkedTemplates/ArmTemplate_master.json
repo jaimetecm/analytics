@@ -11,10 +11,6 @@
 			"type": "secureString",
 			"metadata": "Cadena protegida para \"connectionString\"de \"AzureBlobStorage1\""
 		},
-		"AzureSqlDatabase1_connectionString": {
-			"type": "secureString",
-			"metadata": "Cadena protegida para \"connectionString\"de \"AzureSqlDatabase1\""
-		},
 		"AzureDatabricks1_accessToken": {
 			"type": "secureString",
 			"metadata": "Cadena protegida para \"accessToken\"de \"AzureDatabricks1\""
@@ -22,6 +18,30 @@
 		"AzureDatabricks2_accessToken": {
 			"type": "secureString",
 			"metadata": "Cadena protegida para \"accessToken\"de \"AzureDatabricks2\""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Cadena protegida para \"connectionString\"de \"AzureSqlDatabase1\""
+		},
+		"AzureDatabricks3_accessToken": {
+			"type": "secureString",
+			"metadata": "Cadena protegida para \"accessToken\"de \"AzureDatabricks3\""
+		},
+		"AzureBatch1_accessKey": {
+			"type": "secureString",
+			"metadata": "Cadena protegida para \"accessKey\"de \"AzureBatch1\""
+		},
+		"AzureBatch1_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "jaimereyes"
+		},
+		"AzureBatch1_properties_typeProperties_batchUri": {
+			"type": "string",
+			"defaultValue": "https://a10cons.southcentralus.batch.azure.com"
+		},
+		"AzureBatch1_properties_typeProperties_poolName": {
+			"type": "string",
+			"defaultValue": "gp1"
 		},
 		"containerUri": {
 			"type": "string",
@@ -53,14 +73,29 @@
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
-					"AzureSqlDatabase1_connectionString": {
-						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
-					},
 					"AzureDatabricks1_accessToken": {
 						"value": "[parameters('AzureDatabricks1_accessToken')]"
 					},
 					"AzureDatabricks2_accessToken": {
 						"value": "[parameters('AzureDatabricks2_accessToken')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"AzureDatabricks3_accessToken": {
+						"value": "[parameters('AzureDatabricks3_accessToken')]"
+					},
+					"AzureBatch1_accessKey": {
+						"value": "[parameters('AzureBatch1_accessKey')]"
+					},
+					"AzureBatch1_properties_typeProperties_accountName": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_accountName')]"
+					},
+					"AzureBatch1_properties_typeProperties_batchUri": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]"
+					},
+					"AzureBatch1_properties_typeProperties_poolName": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_poolName')]"
 					}
 				}
 			},
