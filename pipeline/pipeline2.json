@@ -30,7 +30,7 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "DELETE FROM worldbank4;",
+						"preCopyScript": "DELETE FROM worldbank5;",
 						"disableMetricsCollection": true
 					},
 					"enableStaging": false,
@@ -76,7 +76,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable5",
+						"referenceName": "AzureSqlTable6",
 						"type": "DatasetReference"
 					}
 				]
@@ -101,7 +101,8 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"pythonFile": "dbfs:/Users/jaimereyes@live.com.mx/demo"
+					"pythonFile": "dbfs:/Users/jaimereyes@live.com.mx/demo",
+					"parameters": []
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks2",
